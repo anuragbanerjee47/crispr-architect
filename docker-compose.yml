@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  grna-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: grna_designer_web
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - ./output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0

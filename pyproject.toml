@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grna-designer"
+version = "2.0.0"
+description = "CRISPR gRNA designer: Rule Set 2 scoring, optional genome-wide off-target search, exon filter."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "biopython>=1.81",
+]
+
+[project.optional-dependencies]
+genome = []  # No Python dep for genome mode; Cas-OFFinder binary is required.
+web = [
+    "streamlit>=1.35",
+    "plotly>=5.0",
+    "pandas>=2.0",
+]
+test = [
+    "pytest>=7.0",
+]
+
+[project.scripts]
+grna-designer = "grna_designer.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["grna_designer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"

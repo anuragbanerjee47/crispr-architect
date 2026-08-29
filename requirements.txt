@@ -1,0 +1,7 @@
+biopython==1.85
+streamlit==1.41.1
+pandas==2.2.3
+plotly==6.0.0
+requests==2.32.3
+pytest==8.3.3
+tqdm==4.67.1
